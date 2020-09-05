@@ -9,6 +9,10 @@
 #import "ViewController.h"
 #include <dlfcn.h>
 
+#import "Child.h"
+
+typedef NSArray* (^block)(NSString *ss);
+
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *aTextFild;
@@ -25,6 +29,17 @@
 @end
 
 @implementation ViewController
+
++ (void)load{
+    [super load];
+    NSLog(@" VC--- %s ----", __func__);
+}
+
++ (void)initialize{
+    [super initialize];
+    NSLog(@" VC--- %s ----", __func__);
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -126,7 +141,15 @@
     
 //    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,  NSUserDomainMask, YES);
     
-    [self loadFrameWorkByBundle];
+//    [self loadFrameWorkByBundle];
+    
+    [[Child alloc] init];
+    
+    NSMutableArray *arr = [NSMutableArray array];
+    [arr addObject:@"1"];
+    [arr addObject:[NSMutableDictionary dictionary]];
+    [arr addObject:[NSMutableArray array]];
+    NSLog(@"arr：%@",arr);
 }
 
 - (void)loadFrameWorkByBundle{
@@ -158,3 +181,4 @@
 }
 
 @end
+
