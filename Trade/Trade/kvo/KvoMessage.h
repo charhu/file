@@ -6,11 +6,11 @@
 //  Copyright © 2020 MacPro. All rights reserved.
 //
 
-#import "NSObjectBase.h"
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface KvoMessage : NSObjectBase
+@interface KvoMessage : NSObject
 {
     @public
     int _count;
@@ -19,8 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *number;
 
 + (void)test;
-- (void)resolveThisMethodDynamically;
-+ (void)resolveThisClassMethodDynamically;
+- (void)resolveInstanceMethodDynamically;
++ (void)resolveClassMethodDynamically;
 
 - (void)demo1;
 + (void)demo2;

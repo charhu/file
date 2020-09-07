@@ -96,8 +96,9 @@
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nvc;
     
-    [vc testRun];
-    [RuntimeViewController testClassRun];
+//    [vc testRun];
+//    [RuntimeViewController testClassRun];
+    
     UIView *a = nil;
     [self.window addSubview:a];
     

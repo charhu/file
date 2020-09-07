@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (Execption)
 
++ (NSMethodSignature *)customMethodSignatureForSelector:(SEL)aSelector;
++ (void)customForwardInvocation:(NSInvocation *)invocation;
+
+- (NSMethodSignature *)customMethodSignatureForSelector:(SEL)aSelector;
+- (void)customForwardInvocation:(NSInvocation *)invocation;
 @end
 
 NS_ASSUME_NONNULL_END

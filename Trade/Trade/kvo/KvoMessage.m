@@ -10,6 +10,7 @@
 
 #include <objc/runtime.h>
 #import "Forward.h"
+#import "NSObject+Execption.h"
 
 @interface KvoMessage ()
 @property (strong, nonatomic) Forward *forwardObj;
@@ -45,7 +46,7 @@
 //+ (void)test{
 //    NSLog(@" --- %s --- ", __func__);
 //}
-
+// 默认值YES
 + (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key{
     return NO;
     if ([key isEqualToString:@"_name"]) {
@@ -66,15 +67,14 @@
  字母意思：x 16进制，f 浮点，d 10 进制；b 1字节，h 2字节，w 4字节，g 8字节
 */
 
-// 假设没有实现 resolveThisMethodDynamically
-//- (void)resolveThisMethodDynamically{
+// 假设没有实现 resolveInstanceMethodDynamically
+//- (void)resolveInstanceMethodDynamically{
 //    NSLog(@"1111");
 //}
 + (BOOL) resolveInstanceMethod:(SEL)aSel{
-    
-    if (aSel == @selector(resolveThisMethodDynamically)){
+    if (aSel == @selector(resolveInstanceMethodDynamically)){
         // 因为是新增实例方法，所以给 Class 添加方法：Class = self
-        Method method = class_getInstanceMethod(self, sel_registerName("dynamicMethodIMP"));
+        Method method = class_getInstanceMethod(self, sel_registerName("dynamicInstanceMethodIMP"));
         const char *types = method_getTypeEncoding(method);
         IMP imp = method_getImplementation(method);
         
@@ -85,8 +85,8 @@
         return [super resolveInstanceMethod:aSel];
     }
 }
-- (void)dynamicMethodIMP{
-    NSLog(@"222");
+- (void)dynamicInstanceMethodIMP{
+    NSLog(@"实例方法 动态解析：%s", __func__);
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(queue, ^{
             NSLog(@"222   %@", [NSThread currentThread]);
@@ -94,19 +94,16 @@
             [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:3]];
     });
 }
-
-
 - (void)testThread{
-    NSLog(@"hhhhhh   %@", [NSThread currentThread]);
+    NSLog(@"hhhhhh 运行时：   %@", [NSThread currentThread]);
 }
 
-// 假设没有实现 resolveThisClassMethodDynamically
-//- (void)resolveThisClassMethodDynamically{
+// 假设没有实现 resolveClassMethodDynamically
+//- (void)resolveClassMethodDynamically{
 //    NSLog(@"1111");
 //}
 + (BOOL) resolveClassMethod:(SEL)aSel{
-    
-    if (aSel == @selector(resolveThisClassMethodDynamically)){
+    if (aSel == @selector(resolveClassMethodDynamically)){
         // 因为是新增类方法，所以给 MetaClass 添加方法：MetaClass = object_getClass(self)
         Method method = class_getClassMethod(object_getClass(self), sel_registerName("dynamicClassMethodIMP"));
         const char *types = method_getTypeEncoding(method);
@@ -120,20 +117,20 @@
     }
 }
 + (void)dynamicClassMethodIMP{
-    NSLog(@"333");
+    NSLog(@"类方法 动态解析：%s", __func__);
 }
 
 //
-///* ------ 消息转发处理方案 2 ------*/
+/* ------ 消息转发处理方案 2 ------*/
 //
-//// 消息转发，即消息重定向，forwardInvocation思路，简单讲，就是将本类找不到的实现，让其他类帮忙实现。
-//// 类方法重签
-//+ (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-//    if ([self respondsToSelector:aSelector]) {
-//        return [super methodSignatureForSelector:aSelector];
-//    }
-//    return [NSMethodSignature methodSignatureForSelector:aSelector];
-//}
+// 消息转发，即消息重定向，forwardInvocation思路，简单讲，就是将本类找不到的实现，让其他类帮忙实现。
+// 类方法重签
++ (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    if ([self respondsToSelector:aSelector]) {
+        return [self.class instanceMethodSignatureForSelector:aSelector];
+    }    
+    return [super methodSignatureForSelector:aSelector];
+}
 + (void)forwardInvocation:(NSInvocation *)invocation {
     SEL aSelector = [invocation selector];
     // 判断 其他类对象 是否有实现该方法
@@ -143,14 +140,14 @@
         [super forwardInvocation:invocation];
     }
 }
-//
-//// 实例方法重签
-//- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-//    if ([self respondsToSelector:aSelector]) {
-//        return [super methodSignatureForSelector:aSelector];
-//    }
-//    return [NSMethodSignature methodSignatureForSelector:aSelector];
-//}
+
+// 实例方法重签
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    if ([self respondsToSelector:aSelector]) {
+        return [self.class instanceMethodSignatureForSelector:aSelector];
+    }
+    return [super methodSignatureForSelector:aSelector];
+}
 - (void)forwardInvocation:(NSInvocation *)invocation {
     SEL aSelector = [invocation selector];
     // 判断 其他实例对象 是否有实现该方法
@@ -197,27 +194,18 @@
 
 
 
-//// Replaced by CF (throws an NSException)
+// Replaced by CF (throws an NSException)
 //+ (void)doesNotRecognizeSelector:(SEL)sel {
 ////    [super doesNotRecognizeSelector:sel];
-//    
-//    NSLog(@"+[%s %s]: unrecognized selector sent to instance %p",
-//                class_getName(self), sel_getName(sel), self);
+//
+//    NSLog(@"+[%s %s]: unrecognized selector sent to instance %p", class_getName(self), sel_getName(sel), self);
 //}
 //
 //// Replaced by CF (throws an NSException)
 //- (void)doesNotRecognizeSelector:(SEL)sel {
 ////    [super doesNotRecognizeSelector:sel];
-//    
-//    NSLog(@"-[%s %s]: unrecognized selector sent to instance %p",
-//                object_getClassName(self), sel_getName(sel), self);
+//
+//    NSLog(@"-[%s %s]: unrecognized selector sent to instance %p", object_getClassName(self), sel_getName(sel), self);
 //}
 
-
-- (void)demo3{
-    NSLog(@"-- %s ----", __func__);
-}
-+ (void)demo4{
-    NSLog(@"-- %s ----", __func__);
-}
 @end

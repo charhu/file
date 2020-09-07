@@ -25,11 +25,14 @@
 +(void)load{
     NSLog(@" --- %s ----", __func__);
     
-    [self exchangeMethod:@"methodSignatureForSelector:" withNewMethod:@"customMethodSignatureForSelector:" isClass: YES];
-    [self exchangeMethod:@"forwardInvocation:" withNewMethod:@"customForwardInvocation:" isClass: YES];
-    
-    [self exchangeMethod:@"methodSignatureForSelector:" withNewMethod:@"customMethodSignatureForSelector:" isClass: NO];
-    [self exchangeMethod:@"forwardInvocation:" withNewMethod:@"customForwardInvocation:" isClass: NO];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self exchangeMethod:@"methodSignatureForSelector:" withNewMethod:@"customMethodSignatureForSelector:" isClass: YES];
+        [self exchangeMethod:@"forwardInvocation:" withNewMethod:@"customForwardInvocation:" isClass: YES];
+        
+        [self exchangeMethod:@"methodSignatureForSelector:" withNewMethod:@"customMethodSignatureForSelector:" isClass: NO];
+        [self exchangeMethod:@"forwardInvocation:" withNewMethod:@"customForwardInvocation:" isClass: NO];
+    });
 }
 
 + (void)exchangeMethod:(NSString *)old withNewMethod:(NSString *)new isClass:(BOOL)isClassMeth{
@@ -74,7 +77,7 @@
 // 消息转发，即消息重定向，forwardInvocation思路，简单讲，就是将本类找不到的实现，让其他类帮忙实现。
 // 类方法重签
 + (NSMethodSignature *)customMethodSignatureForSelector:(SEL)aSelector {
-    return [self instanceMethodSignatureForSelector:@selector(init)];  // 任意的方法
+    return [self instanceMethodSignatureForSelector:@selector(doNothing)];  // 任意的自定义方法
 }
 + (void)customForwardInvocation:(NSInvocation *)invocation {
     SEL aSelector = [invocation selector];
@@ -83,7 +86,7 @@
 
 // 实例方法重签
 - (NSMethodSignature *)customMethodSignatureForSelector:(SEL)aSelector {
-    return [self.class instanceMethodSignatureForSelector:@selector(init)]; // 任意的方法
+    return [self.class instanceMethodSignatureForSelector:@selector(doNothing)]; // 任意的自定义方法
 }
 - (void)customForwardInvocation:(NSInvocation *)invocation {
     SEL aSelector = [invocation selector];
@@ -100,18 +103,21 @@
 }
 */
 
+- (void)doNothing{}
++ (void)doNothing{}
 
 
-//// Class 类方法  ：留给子类去实现
-//+ (id)forwardingTargetForSelector:(SEL)aSelector {
-//    NSLog(@"找不到类方法：%@", NSStringFromSelector(aSelector));
-//    return nil;
-//}
-//// instance 实例方法  ：留给子类去实现
-//- (id)forwardingTargetForSelector:(SEL)aSelector {
-//    NSLog(@"找不到实例方法：%@", NSStringFromSelector(aSelector));
-//    return nil;
-//}
+
+// Class 类方法  ：留给子类去实现
++ (id)forwardingTargetForSelector:(SEL)aSelector {
+    NSLog(@"forwardingTargetForSelector 找不到类方法：[%@  %@]", self, NSStringFromSelector(aSelector));
+    return nil;
+}
+// instance 实例方法  ：留给子类去实现
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+    NSLog(@"forwardingTargetForSelector 找不到实例方法：[%@ %@]", self, NSStringFromSelector(aSelector));
+    return nil;
+}
 
 @end
 

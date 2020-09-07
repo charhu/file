@@ -17,9 +17,9 @@
 // 类方法重签
 //+ (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
 //    if ([self respondsToSelector:aSelector]) {
-//        return [super methodSignatureForSelector:aSelector];
+//        return [self.class instanceMethodSignatureForSelector:aSelector];
 //    }
-//    return [self instanceMethodSignatureForSelector:@selector(init)];  // 任意的方法
+//    return [super methodSignatureForSelector:aSelector];
 //}
 //+ (void)forwardInvocation:(NSInvocation *)invocation {
 //    SEL aSelector = [invocation selector];
@@ -29,9 +29,9 @@
 //// 实例方法重签
 //- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
 //    if ([self respondsToSelector:aSelector]) {
-//        return [super methodSignatureForSelector:aSelector];
+//        return [self.class instanceMethodSignatureForSelector:aSelector];
 //    }
-//    return [self.class instanceMethodSignatureForSelector:@selector(init)]; // 任意的方法
+//    return [super methodSignatureForSelector:aSelector];
 //}
 //- (void)forwardInvocation:(NSInvocation *)invocation {
 //    SEL aSelector = [invocation selector];

@@ -32,7 +32,7 @@
 		8E794DD925002C1400A06F40 /* Forward.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E794DD825002C1400A06F40 /* Forward.m */; };
 		8E794DDC250208B900A06F40 /* Son.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E794DDB250208B900A06F40 /* Son.m */; };
 		8E794DE22502240200A06F40 /* NSObjectBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E794DE12502240200A06F40 /* NSObjectBase.m */; };
-		8E794DE52502389900A06F40 /* NSObject+Execption.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E794DE42502389900A06F40 /* NSObject+Execption.m */; };
+		8E794DF125035B5500A06F40 /* NSObject+Execption.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E794DF025035B5500A06F40 /* NSObject+Execption.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,8 +86,8 @@
 		8E794DDB250208B900A06F40 /* Son.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Son.m; sourceTree = "<group>"; };
 		8E794DE02502240200A06F40 /* NSObjectBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObjectBase.h; sourceTree = "<group>"; };
 		8E794DE12502240200A06F40 /* NSObjectBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObjectBase.m; sourceTree = "<group>"; };
-		8E794DE32502389900A06F40 /* NSObject+Execption.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Execption.h"; sourceTree = "<group>"; };
-		8E794DE42502389900A06F40 /* NSObject+Execption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Execption.m"; sourceTree = "<group>"; };
+		8E794DEF25035B5500A06F40 /* NSObject+Execption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Execption.h"; sourceTree = "<group>"; };
+		8E794DF025035B5500A06F40 /* NSObject+Execption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Execption.m"; sourceTree = "<group>"; };
 		8EE947E624D0582000A3B7DC /* Trade.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Trade.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,8 +215,8 @@
 				8E794DD825002C1400A06F40 /* Forward.m */,
 				8E794DE02502240200A06F40 /* NSObjectBase.h */,
 				8E794DE12502240200A06F40 /* NSObjectBase.m */,
-				8E794DE32502389900A06F40 /* NSObject+Execption.h */,
-				8E794DE42502389900A06F40 /* NSObject+Execption.m */,
+				8E794DEF25035B5500A06F40 /* NSObject+Execption.h */,
+				8E794DF025035B5500A06F40 /* NSObject+Execption.m */,
 			);
 			path = kvo;
 			sourceTree = "<group>";
@@ -320,7 +320,6 @@
 				8E3D18B224F7CE4200B817AC /* Demo+Dog.m in Sources */,
 				8E732E2C24E283AE006243EB /* Person.m in Sources */,
 				8E732E2924DCF962006243EB /* Demo.m in Sources */,
-				8E794DE52502389900A06F40 /* NSObject+Execption.m in Sources */,
 				8E3D189C24EEBB3100B817AC /* AppDelegate.m in Sources */,
 				8E3D18BD24F8BDFB00B817AC /* KvoMessage.m in Sources */,
 				8E3D18A024EEBBD200B817AC /* DemoViewController.m in Sources */,
@@ -332,6 +331,7 @@
 				8E3D189324EE5FDD00B817AC /* LifeViewController.m in Sources */,
 				8E794DDC250208B900A06F40 /* Son.m in Sources */,
 				8E3D18C424F8F9BA00B817AC /* Work.m in Sources */,
+				8E794DF125035B5500A06F40 /* NSObject+Execption.m in Sources */,
 				8E732E2224D3BB65006243EB /* Child.m in Sources */,
 				8E3D18B524F7CE6C00B817AC /* Demo+Cat.m in Sources */,
 			);

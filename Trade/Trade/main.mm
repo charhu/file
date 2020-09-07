@@ -110,7 +110,7 @@ int main(int argc, char *argv[]){
         
 //        test1();
         test2();
-        
+//        fordwing();
 //        NSInteger num = 3;
 //
 //        NSObject *obj = [[NSObject alloc] init];
@@ -137,7 +137,7 @@ int main(int argc, char *argv[]){
             NSLog(@"obj2 : %@", obj2);
         };
 //        obj.age = 44;
-        block(2);
+//        block(2);
 //        NSLog(@"obj.age：%d", obj.age);
         
         /*  值捕获  */
@@ -169,7 +169,7 @@ int main(int argc, char *argv[]){
 //        打印结果：n : 25, 等同于直接20传参进去，在做运算，所以是没有捕获
         
     {
-        Apple *app = [[Apple alloc] init];
+//        Apple *app = [[Apple alloc] init];
         
 //        app.number = 13;
 //        NSLog(@"%d", app->_age);
@@ -185,7 +185,7 @@ int main(int argc, char *argv[]){
         
 //        [app test];
         
-        [app click3];
+//        [app click3];
     }
 //        return 0;
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
@@ -195,9 +195,6 @@ int main(int argc, char *argv[]){
 
 
 void fordwing(){
-    [[[KvoMessage alloc] init] resolveThisMethodDynamically];
-     [[[KvoMessage alloc] init] resolveThisMethodDynamically];
-     
      if (__builtin_expect(3,1)) {
          NSLog(@"YES");
      }else{
@@ -214,9 +211,9 @@ void fordwing(){
      [kvo1 demo1];
      [KvoMessage demo2];
      
-     [kvo1 demo3];
-     [KvoMessage demo4];
-     [KvoMessage resolveThisClassMethodDynamically];
+     // 测试动态解析
+     [kvo1 resolveInstanceMethodDynamically];
+     [KvoMessage resolveClassMethodDynamically];
 }
 
 void classISA(){

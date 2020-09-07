@@ -6,11 +6,11 @@
 //  Copyright © 2020 MacPro. All rights reserved.
 //
 
-#import "NSObjectBase.h"
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Forward : NSObjectBase
+@interface Forward : NSObject
 
 - (void)demo1;
 + (void)demo2;
