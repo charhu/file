@@ -21,6 +21,8 @@
 
 #import "MJPerson.h"
 
+#import "RedColor.h"
+
 @interface Man : NSObject
 @property (assign, nonatomic) int age;
 @property (strong, nonatomic) NSString *name;
@@ -147,10 +149,21 @@ void testArr(){
     NSString *var = dic[@"ss"];
 }
 
+void testColor(){
+    RedColor *redC = [[RedColor alloc] init];
+    [redC setColerRgb:100];
+    
+    Color *cc = [[Color alloc] init];
+    [cc setColerRgb:100];
+}
+
 int main(int argc, char *argv[]){
     
     @autoreleasepool {
-        testArr();
+   
+        
+//        testColor();
+//        testArr();
 //        testSon();
 //        test1();
 //        fordwing();

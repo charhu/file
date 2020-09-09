@@ -23,6 +23,8 @@ typedef void(^handerBlock)(id);
 @property (assign, nonatomic) id<HandderDelegate> delegate;
 @property (copy, nonatomic) handerBlock block;
 
+@property (assign, nonatomic) id forwardObj;
+
 @end
 
 NS_ASSUME_NONNULL_END

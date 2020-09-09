@@ -44,7 +44,13 @@
 		8EAD8C7B25089D0300433F57 /* DisplayLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD8C7925089B9600433F57 /* DisplayLinkViewController.m */; };
 		8EAD8C7E25089D7F00433F57 /* DisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD8C7D25089D7F00433F57 /* DisplayLink.m */; };
 		8EAD8C8125089E9800433F57 /* MyTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD8C8025089E9800433F57 /* MyTimer.m */; };
-		8EAD8C842508A49E00433F57 /* Handder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD8C832508A49E00433F57 /* Handder.m */; };
+		8EAD8C882508AAA000433F57 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD8C872508AAA000433F57 /* Color.m */; };
+		8EAD8C8B2508AAE400433F57 /* RedColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD8C8A2508AAE400433F57 /* RedColor.m */; };
+		8EAD8C8E2508AB5300433F57 /* Color+Update.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD8C8D2508AB5300433F57 /* Color+Update.m */; };
+		8EAD8C8F2508B44500433F57 /* Handder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD8C832508A49E00433F57 /* Handder.m */; };
+		8EAD8C922508B61A00433F57 /* Hander_Proxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD8C912508B61A00433F57 /* Hander_Proxy.m */; };
+		8EAD8C942508BE9500433F57 /* DisplayLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EAD8C932508BE9500433F57 /* DisplayLinkViewController.xib */; };
+		8EAD8C982508D3C200433F57 /* TaggedPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD8C972508D3C200433F57 /* TaggedPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +128,17 @@
 		8EAD8C8025089E9800433F57 /* MyTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTimer.m; sourceTree = "<group>"; };
 		8EAD8C822508A49E00433F57 /* Handder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Handder.h; sourceTree = "<group>"; };
 		8EAD8C832508A49E00433F57 /* Handder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Handder.m; sourceTree = "<group>"; };
+		8EAD8C862508AAA000433F57 /* Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
+		8EAD8C872508AAA000433F57 /* Color.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
+		8EAD8C892508AAE400433F57 /* RedColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedColor.h; sourceTree = "<group>"; };
+		8EAD8C8A2508AAE400433F57 /* RedColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedColor.m; sourceTree = "<group>"; };
+		8EAD8C8C2508AB5300433F57 /* Color+Update.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Color+Update.h"; sourceTree = "<group>"; };
+		8EAD8C8D2508AB5300433F57 /* Color+Update.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Color+Update.m"; sourceTree = "<group>"; };
+		8EAD8C902508B61A00433F57 /* Hander_Proxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hander_Proxy.h; sourceTree = "<group>"; };
+		8EAD8C912508B61A00433F57 /* Hander_Proxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Hander_Proxy.m; sourceTree = "<group>"; };
+		8EAD8C932508BE9500433F57 /* DisplayLinkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisplayLinkViewController.xib; sourceTree = "<group>"; };
+		8EAD8C962508D3C200433F57 /* TaggedPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaggedPoint.h; sourceTree = "<group>"; };
+		8EAD8C972508D3C200433F57 /* TaggedPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaggedPoint.m; sourceTree = "<group>"; };
 		8EE947E624D0582000A3B7DC /* Trade.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Trade.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,7 +175,8 @@
 				8EE947E624D0582000A3B7DC /* Trade.entitlements */,
 				8E32278424AD47DC0077122D /* AppDelegate.h */,
 				8E3D189B24EEBB3100B817AC /* AppDelegate.m */,
-				8EAD8C7725089B8700433F57 /* timer */,
+				8EAD8C952508D3A300433F57 /* taggedPoint */,
+				8EAD8C7725089B8700433F57 /* timer_cycle */,
 				8E794E0C25078B9B00A06F40 /* gcd */,
 				8E794DFE25076F3400A06F40 /* runloop */,
 				8E794DD024FFC58A00A06F40 /* message */,
@@ -220,6 +238,7 @@
 		8E3D18A424F4E04200B817AC /* runtime */ = {
 			isa = PBXGroup;
 			children = (
+				8EAD8C852508AA7F00433F57 /* exchange */,
 				8E3D18A524F4E06100B817AC /* Student.h */,
 				8E3D18A624F4E06100B817AC /* Student.m */,
 				8E794DDA250208B900A06F40 /* Son.h */,
@@ -306,19 +325,44 @@
 			path = gcd;
 			sourceTree = "<group>";
 		};
-		8EAD8C7725089B8700433F57 /* timer */ = {
+		8EAD8C7725089B8700433F57 /* timer_cycle */ = {
 			isa = PBXGroup;
 			children = (
 				8EAD8C7825089B9600433F57 /* DisplayLinkViewController.h */,
 				8EAD8C7925089B9600433F57 /* DisplayLinkViewController.m */,
+				8EAD8C932508BE9500433F57 /* DisplayLinkViewController.xib */,
 				8EAD8C7C25089D7F00433F57 /* DisplayLink.h */,
 				8EAD8C7D25089D7F00433F57 /* DisplayLink.m */,
 				8EAD8C7F25089E9800433F57 /* MyTimer.h */,
 				8EAD8C8025089E9800433F57 /* MyTimer.m */,
 				8EAD8C822508A49E00433F57 /* Handder.h */,
 				8EAD8C832508A49E00433F57 /* Handder.m */,
+				8EAD8C902508B61A00433F57 /* Hander_Proxy.h */,
+				8EAD8C912508B61A00433F57 /* Hander_Proxy.m */,
 			);
-			path = timer;
+			path = timer_cycle;
+			sourceTree = "<group>";
+		};
+		8EAD8C852508AA7F00433F57 /* exchange */ = {
+			isa = PBXGroup;
+			children = (
+				8EAD8C862508AAA000433F57 /* Color.h */,
+				8EAD8C872508AAA000433F57 /* Color.m */,
+				8EAD8C8C2508AB5300433F57 /* Color+Update.h */,
+				8EAD8C8D2508AB5300433F57 /* Color+Update.m */,
+				8EAD8C892508AAE400433F57 /* RedColor.h */,
+				8EAD8C8A2508AAE400433F57 /* RedColor.m */,
+			);
+			path = exchange;
+			sourceTree = "<group>";
+		};
+		8EAD8C952508D3A300433F57 /* taggedPoint */ = {
+			isa = PBXGroup;
+			children = (
+				8EAD8C962508D3C200433F57 /* TaggedPoint.h */,
+				8EAD8C972508D3C200433F57 /* TaggedPoint.m */,
+			);
+			path = taggedPoint;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E794E0B250770B300A06F40 /* TimerViewController.xib in Resources */,
+				8EAD8C942508BE9500433F57 /* DisplayLinkViewController.xib in Resources */,
 				8E32279424AD47E60077122D /* LaunchScreen.storyboard in Resources */,
 				8E3D188824EB7B7300B817AC /* ViewController.xib in Resources */,
 				8E32279124AD47E60077122D /* Assets.xcassets in Resources */,
@@ -397,9 +442,11 @@
 			files = (
 				8E32278C24AD47DC0077122D /* ViewController.m in Sources */,
 				8E3D18AA24F4E3F400B817AC /* RuntimeViewController.m in Sources */,
+				8EAD8C982508D3C200433F57 /* TaggedPoint.m in Sources */,
 				8E3D18A724F4E06100B817AC /* Student.m in Sources */,
 				8E3D18B224F7CE4200B817AC /* Demo+Dog.m in Sources */,
 				8EAD8C7B25089D0300433F57 /* DisplayLinkViewController.m in Sources */,
+				8EAD8C8F2508B44500433F57 /* Handder.m in Sources */,
 				8E794DFD25071DF900A06F40 /* NSMutableArray+Insert.m in Sources */,
 				8E794DFA2506360800A06F40 /* MJPerson.m in Sources */,
 				8E794E0F25078BC700A06F40 /* QueueViewController.m in Sources */,
@@ -407,7 +454,8 @@
 				8E794E0525076FDB00A06F40 /* RunloopViewController.m in Sources */,
 				8E732E2924DCF962006243EB /* Demo.m in Sources */,
 				8EAD8C7E25089D7F00433F57 /* DisplayLink.m in Sources */,
-				8EAD8C842508A49E00433F57 /* Handder.m in Sources */,
+				8EAD8C8B2508AAE400433F57 /* RedColor.m in Sources */,
+				8EAD8C922508B61A00433F57 /* Hander_Proxy.m in Sources */,
 				8E3D189C24EEBB3100B817AC /* AppDelegate.m in Sources */,
 				8E3D18BD24F8BDFB00B817AC /* KvoMessage.m in Sources */,
 				8E3D18A024EEBBD200B817AC /* DemoViewController.m in Sources */,
@@ -420,7 +468,9 @@
 				8E794DF425062C8600A06F40 /* Son+CateSon.m in Sources */,
 				8E3D18C824FE0B1E00B817AC /* Apple.m in Sources */,
 				8E3D188C24EB7BD400B817AC /* RecordViewController.m in Sources */,
+				8EAD8C8E2508AB5300433F57 /* Color+Update.m in Sources */,
 				8E794E0A250770B300A06F40 /* TimerViewController.m in Sources */,
+				8EAD8C882508AAA000433F57 /* Color.m in Sources */,
 				8E3D189324EE5FDD00B817AC /* LifeViewController.m in Sources */,
 				8E3D18C424F8F9BA00B817AC /* Work.m in Sources */,
 				8E794DF125035B5500A06F40 /* NSObject+Execption.m in Sources */,

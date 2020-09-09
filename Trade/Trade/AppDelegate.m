@@ -22,6 +22,8 @@
 
 #include <malloc/malloc.h>
 
+#import "TaggedPoint.h"
+
 @interface AppDelegate ()
 
 @end
@@ -94,8 +96,9 @@
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nvc;
     
-//    [vc testRun];
-//    [RuntimeViewController testClassRun];
+    [RuntimeViewController testClassRun];
+        
+    [TaggedPoint testTaggedPoint];
     
     UIView *a = nil;
     [self.window addSubview:a];

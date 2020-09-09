@@ -7,21 +7,8 @@
 //
 
 #import "Handder.h"
-#import "DisplayLinkViewController.h"
-
-@interface Handder ()
-@property (strong, nonatomic) DisplayLinkViewController *forwardObj;
-@end
 
 @implementation Handder
-
-
-- (DisplayLinkViewController *)forwardObj{
-    if (!_forwardObj) {
-       _forwardObj = [[DisplayLinkViewController alloc] init];
-    }
-    return _forwardObj;
-}
 
 // 实例方法重签
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
@@ -41,6 +28,10 @@
     }
 }
 
+// instance 实例方法  ：留给子类去实现
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+    return self.forwardObj;
+}
 
 
 //- (void)test{

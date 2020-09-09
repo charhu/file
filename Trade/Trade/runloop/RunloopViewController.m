@@ -21,7 +21,7 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 //    TimerViewController *vc = [[TimerViewController alloc] initWithNibName:@"TimerViewController" bundle:nil];
 //    QueueViewController *vc = [[QueueViewController alloc] init];
-    DisplayLinkViewController *vc = [[DisplayLinkViewController alloc] init];
+    DisplayLinkViewController *vc = [[DisplayLinkViewController alloc] initWithNibName:@"DisplayLinkViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
