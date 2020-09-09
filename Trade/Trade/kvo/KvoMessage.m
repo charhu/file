@@ -26,12 +26,12 @@
 }
 
 + (void)load{
-    [super load];
+//    [super load];
     NSLog(@" --- %s ----", __func__);
 }
 
 + (void)initialize{
-    [super initialize];
+//    [super initialize];
     NSLog(@" --- %s ----", __func__);
 }
 
@@ -87,16 +87,20 @@
 }
 - (void)dynamicInstanceMethodIMP{
     NSLog(@"实例方法 动态解析：%s", __func__);
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        dispatch_async(queue, ^{
-            NSLog(@"222   %@", [NSThread currentThread]);
-             [self performSelector:@selector(testThread) withObject:nil afterDelay:2];
-            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:3]];
-    });
 }
 - (void)testThread{
     NSLog(@"hhhhhh 运行时：   %@", [NSThread currentThread]);
 }
+
+
+/*
+ dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+       dispatch_async(queue, ^{
+           NSLog(@"222   %@", [NSThread currentThread]);
+            [self performSelector:@selector(testThread) withObject:nil afterDelay:2];
+           [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:3]];
+   });
+ */
 
 // 假设没有实现 resolveClassMethodDynamically
 //- (void)resolveClassMethodDynamically{
@@ -168,23 +172,23 @@
  3、如果你在一个非根类中实现这个方法，如果你的类对于给定的选择器没有返回任何东西，那么你应该返回调用super的实现的结果。
  */
 // Class 类方法
-//+ (id)forwardingTargetForSelector:(SEL)sel {
-//    // 判断 其他类对象 是否有实现该方法
-//    if ([Forward.class respondsToSelector:sel]){
-//        return Forward.class; // 类对象
-//    }else{
-//        return [super forwardingTargetForSelector:sel];
-//    }
-//}
-//// instance 实例方法
-//- (id)forwardingTargetForSelector:(SEL)sel {
-//    // 判断 其他实例对象 是否有实现该方法
-//    if ([self.forwardObj respondsToSelector:sel]){
-//        return self.forwardObj; // 实例对象
-//    }else{
-//        return [super forwardingTargetForSelector:sel];
-//    }
-//}
++ (id)forwardingTargetForSelector:(SEL)sel {
+    // 判断 其他类对象 是否有实现该方法
+    if ([Forward.class respondsToSelector:sel]){
+        return Forward.class; // 类对象
+    }else{
+        return [super forwardingTargetForSelector:sel];
+    }
+}
+// instance 实例方法
+- (id)forwardingTargetForSelector:(SEL)sel {
+    // 判断 其他实例对象 是否有实现该方法
+    if ([self.forwardObj respondsToSelector:sel]){
+        return self.forwardObj; // 实例对象
+    }else{
+        return [super forwardingTargetForSelector:sel];
+    }
+}
 
 
 

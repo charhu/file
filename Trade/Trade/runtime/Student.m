@@ -16,12 +16,12 @@
 @implementation Student
 
 + (void)load{
-    [super load];
+//    [super load];
     NSLog(@" --- %s ----", __func__);
 }
 
 + (void)initialize{
-    [super initialize];
+//    [super initialize];
     NSLog(@" --- %s ----", __func__);
 }
 
@@ -93,6 +93,15 @@
 
 - (void)dealloc{
     NSLog(@">>>>>>>>> %s", __func__);
+}
+
+
+- (void)test20{
+    Class cls = self.class;
+    NSLog(@"%@,  %p", cls, cls);
+    
+    NSLog(@"name：%@", self.name);
+//    NSLog(@"name：%@，  age：%d", self.name, self.age);
 }
 
 @end

@@ -25,12 +25,12 @@
 
 
 + (void)load{
-    [super load];
+//    [super load];
     NSLog(@" --- %s ----", __func__);
 }
 
 + (void)initialize{
-    [super initialize];
+//    [super initialize];
     NSLog(@" --- %s ----", __func__);
 }
 

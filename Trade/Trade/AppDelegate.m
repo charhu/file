@@ -12,6 +12,7 @@
 #import "LifeViewController.h"
 #import "DemoViewController.h"
 #import "RuntimeViewController.h"
+#import "RunloopViewController.h"
 
 #import "Demo.h"
 
@@ -28,19 +29,21 @@
 @implementation AppDelegate
 
 + (void)load{
-    [super load];
+//    [super load];
     NSLog(@" --- %s ----", __func__);
 }
 
 + (void)initialize{
-    [super initialize];
+//    [super initialize];
     NSLog(@" --- %s ----", __func__);
 }
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(nullable NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions{
 //    NSLog(@">>>> 1 %s",__func__);
     return YES;
-    
+}
+
+- (void)testlog{
     NSObject *obj = [[NSObject alloc] init];
     
     Demo *dem = [[Demo alloc] init];
@@ -70,15 +73,8 @@
 
     Class o8 = o4.superclass;
     NSLog(@"o8：metaClass.superclass : %d    %@    %p", class_isMetaClass(o8), o8, o8);
-    
-    
 //    NSLog(@"%zu", class_getInstanceSize(o8));
 //    NSLog(@"%zu", malloc_size((const void *)(0x00007fff89d0fcd8)));
-    
-    
-
-    
-    return YES;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -92,7 +88,9 @@
 //    LifeViewController *vc = [[LifeViewController alloc] initWithNibName:@"LifeViewController" bundle:NSBundle.mainBundle];
     
 //    DemoViewController *vc = [[DemoViewController alloc] init];
-    RuntimeViewController *vc = [[RuntimeViewController alloc] init];
+//    RuntimeViewController *vc = [[RuntimeViewController alloc] init];
+    
+    RunloopViewController *vc = [[RunloopViewController alloc] initWithNibName:@"RunloopViewController" bundle:NSBundle.mainBundle];
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nvc;
     

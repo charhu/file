@@ -31,8 +31,20 @@
 		8E732E2C24E283AE006243EB /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E732E2B24E283AE006243EB /* Person.m */; };
 		8E794DD925002C1400A06F40 /* Forward.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E794DD825002C1400A06F40 /* Forward.m */; };
 		8E794DDC250208B900A06F40 /* Son.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E794DDB250208B900A06F40 /* Son.m */; };
-		8E794DE22502240200A06F40 /* NSObjectBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E794DE12502240200A06F40 /* NSObjectBase.m */; };
 		8E794DF125035B5500A06F40 /* NSObject+Execption.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E794DF025035B5500A06F40 /* NSObject+Execption.m */; };
+		8E794DF425062C8600A06F40 /* Son+CateSon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E794DF325062C8600A06F40 /* Son+CateSon.m */; };
+		8E794DF725062DD700A06F40 /* Son+TestSon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E794DF625062DD700A06F40 /* Son+TestSon.m */; };
+		8E794DFA2506360800A06F40 /* MJPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E794DF92506360800A06F40 /* MJPerson.m */; };
+		8E794DFD25071DF900A06F40 /* NSMutableArray+Insert.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E794DFC25071DF900A06F40 /* NSMutableArray+Insert.m */; };
+		8E794E0525076FDB00A06F40 /* RunloopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E794E0325076FDB00A06F40 /* RunloopViewController.m */; };
+		8E794E0625076FDB00A06F40 /* RunloopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E794E0425076FDB00A06F40 /* RunloopViewController.xib */; };
+		8E794E0A250770B300A06F40 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E794E08250770B300A06F40 /* TimerViewController.m */; };
+		8E794E0B250770B300A06F40 /* TimerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E794E09250770B300A06F40 /* TimerViewController.xib */; };
+		8E794E0F25078BC700A06F40 /* QueueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E794E0E25078BC700A06F40 /* QueueViewController.m */; };
+		8EAD8C7B25089D0300433F57 /* DisplayLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD8C7925089B9600433F57 /* DisplayLinkViewController.m */; };
+		8EAD8C7E25089D7F00433F57 /* DisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD8C7D25089D7F00433F57 /* DisplayLink.m */; };
+		8EAD8C8125089E9800433F57 /* MyTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD8C8025089E9800433F57 /* MyTimer.m */; };
+		8EAD8C842508A49E00433F57 /* Handder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD8C832508A49E00433F57 /* Handder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,10 +96,32 @@
 		8E794DD825002C1400A06F40 /* Forward.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Forward.m; sourceTree = "<group>"; };
 		8E794DDA250208B900A06F40 /* Son.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Son.h; sourceTree = "<group>"; };
 		8E794DDB250208B900A06F40 /* Son.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Son.m; sourceTree = "<group>"; };
-		8E794DE02502240200A06F40 /* NSObjectBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObjectBase.h; sourceTree = "<group>"; };
-		8E794DE12502240200A06F40 /* NSObjectBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObjectBase.m; sourceTree = "<group>"; };
 		8E794DEF25035B5500A06F40 /* NSObject+Execption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Execption.h"; sourceTree = "<group>"; };
 		8E794DF025035B5500A06F40 /* NSObject+Execption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Execption.m"; sourceTree = "<group>"; };
+		8E794DF225062C8600A06F40 /* Son+CateSon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Son+CateSon.h"; sourceTree = "<group>"; };
+		8E794DF325062C8600A06F40 /* Son+CateSon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Son+CateSon.m"; sourceTree = "<group>"; };
+		8E794DF525062DD700A06F40 /* Son+TestSon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Son+TestSon.h"; sourceTree = "<group>"; };
+		8E794DF625062DD700A06F40 /* Son+TestSon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Son+TestSon.m"; sourceTree = "<group>"; };
+		8E794DF82506360800A06F40 /* MJPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJPerson.h; sourceTree = "<group>"; };
+		8E794DF92506360800A06F40 /* MJPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJPerson.m; sourceTree = "<group>"; };
+		8E794DFB25071DF800A06F40 /* NSMutableArray+Insert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Insert.h"; sourceTree = "<group>"; };
+		8E794DFC25071DF900A06F40 /* NSMutableArray+Insert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Insert.m"; sourceTree = "<group>"; };
+		8E794E0225076FDB00A06F40 /* RunloopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunloopViewController.h; sourceTree = "<group>"; };
+		8E794E0325076FDB00A06F40 /* RunloopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunloopViewController.m; sourceTree = "<group>"; };
+		8E794E0425076FDB00A06F40 /* RunloopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RunloopViewController.xib; sourceTree = "<group>"; };
+		8E794E07250770B200A06F40 /* TimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
+		8E794E08250770B300A06F40 /* TimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
+		8E794E09250770B300A06F40 /* TimerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerViewController.xib; sourceTree = "<group>"; };
+		8E794E0D25078BC700A06F40 /* QueueViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QueueViewController.h; sourceTree = "<group>"; };
+		8E794E0E25078BC700A06F40 /* QueueViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueueViewController.m; sourceTree = "<group>"; };
+		8EAD8C7825089B9600433F57 /* DisplayLinkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayLinkViewController.h; sourceTree = "<group>"; };
+		8EAD8C7925089B9600433F57 /* DisplayLinkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayLinkViewController.m; sourceTree = "<group>"; };
+		8EAD8C7C25089D7F00433F57 /* DisplayLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayLink.h; sourceTree = "<group>"; };
+		8EAD8C7D25089D7F00433F57 /* DisplayLink.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayLink.m; sourceTree = "<group>"; };
+		8EAD8C7F25089E9800433F57 /* MyTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTimer.h; sourceTree = "<group>"; };
+		8EAD8C8025089E9800433F57 /* MyTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTimer.m; sourceTree = "<group>"; };
+		8EAD8C822508A49E00433F57 /* Handder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Handder.h; sourceTree = "<group>"; };
+		8EAD8C832508A49E00433F57 /* Handder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Handder.m; sourceTree = "<group>"; };
 		8EE947E624D0582000A3B7DC /* Trade.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Trade.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +158,9 @@
 				8EE947E624D0582000A3B7DC /* Trade.entitlements */,
 				8E32278424AD47DC0077122D /* AppDelegate.h */,
 				8E3D189B24EEBB3100B817AC /* AppDelegate.m */,
+				8EAD8C7725089B8700433F57 /* timer */,
+				8E794E0C25078B9B00A06F40 /* gcd */,
+				8E794DFE25076F3400A06F40 /* runloop */,
 				8E794DD024FFC58A00A06F40 /* message */,
 				8E3D18C524FE0B0D00B817AC /* block */,
 				8E3D18BA24F8BDD300B817AC /* kvo */,
@@ -187,10 +224,18 @@
 				8E3D18A624F4E06100B817AC /* Student.m */,
 				8E794DDA250208B900A06F40 /* Son.h */,
 				8E794DDB250208B900A06F40 /* Son.m */,
+				8E794DF225062C8600A06F40 /* Son+CateSon.h */,
+				8E794DF325062C8600A06F40 /* Son+CateSon.m */,
+				8E794DF525062DD700A06F40 /* Son+TestSon.h */,
+				8E794DF625062DD700A06F40 /* Son+TestSon.m */,
 				8E3D18A824F4E3F400B817AC /* RuntimeViewController.h */,
 				8E3D18A924F4E3F400B817AC /* RuntimeViewController.m */,
 				8E3D18C224F8F9BA00B817AC /* Work.h */,
 				8E3D18C324F8F9BA00B817AC /* Work.m */,
+				8E794DF82506360800A06F40 /* MJPerson.h */,
+				8E794DF92506360800A06F40 /* MJPerson.m */,
+				8E794DFB25071DF800A06F40 /* NSMutableArray+Insert.h */,
+				8E794DFC25071DF900A06F40 /* NSMutableArray+Insert.m */,
 			);
 			path = runtime;
 			sourceTree = "<group>";
@@ -213,10 +258,6 @@
 				8E3D18BC24F8BDFB00B817AC /* KvoMessage.m */,
 				8E794DD725002C1400A06F40 /* Forward.h */,
 				8E794DD825002C1400A06F40 /* Forward.m */,
-				8E794DE02502240200A06F40 /* NSObjectBase.h */,
-				8E794DE12502240200A06F40 /* NSObjectBase.m */,
-				8E794DEF25035B5500A06F40 /* NSObject+Execption.h */,
-				8E794DF025035B5500A06F40 /* NSObject+Execption.m */,
 			);
 			path = kvo;
 			sourceTree = "<group>";
@@ -237,8 +278,47 @@
 				8E794DD224FFC5A300A06F40 /* Message.m */,
 				8E794DD424FFD4C300A06F40 /* Message+Slove.h */,
 				8E794DD524FFD4C300A06F40 /* Message+Slove.m */,
+				8E794DEF25035B5500A06F40 /* NSObject+Execption.h */,
+				8E794DF025035B5500A06F40 /* NSObject+Execption.m */,
 			);
 			path = message;
+			sourceTree = "<group>";
+		};
+		8E794DFE25076F3400A06F40 /* runloop */ = {
+			isa = PBXGroup;
+			children = (
+				8E794E0225076FDB00A06F40 /* RunloopViewController.h */,
+				8E794E0325076FDB00A06F40 /* RunloopViewController.m */,
+				8E794E0425076FDB00A06F40 /* RunloopViewController.xib */,
+				8E794E07250770B200A06F40 /* TimerViewController.h */,
+				8E794E08250770B300A06F40 /* TimerViewController.m */,
+				8E794E09250770B300A06F40 /* TimerViewController.xib */,
+			);
+			path = runloop;
+			sourceTree = "<group>";
+		};
+		8E794E0C25078B9B00A06F40 /* gcd */ = {
+			isa = PBXGroup;
+			children = (
+				8E794E0D25078BC700A06F40 /* QueueViewController.h */,
+				8E794E0E25078BC700A06F40 /* QueueViewController.m */,
+			);
+			path = gcd;
+			sourceTree = "<group>";
+		};
+		8EAD8C7725089B8700433F57 /* timer */ = {
+			isa = PBXGroup;
+			children = (
+				8EAD8C7825089B9600433F57 /* DisplayLinkViewController.h */,
+				8EAD8C7925089B9600433F57 /* DisplayLinkViewController.m */,
+				8EAD8C7C25089D7F00433F57 /* DisplayLink.h */,
+				8EAD8C7D25089D7F00433F57 /* DisplayLink.m */,
+				8EAD8C7F25089E9800433F57 /* MyTimer.h */,
+				8EAD8C8025089E9800433F57 /* MyTimer.m */,
+				8EAD8C822508A49E00433F57 /* Handder.h */,
+				8EAD8C832508A49E00433F57 /* Handder.m */,
+			);
+			path = timer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,10 +378,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E794E0B250770B300A06F40 /* TimerViewController.xib in Resources */,
 				8E32279424AD47E60077122D /* LaunchScreen.storyboard in Resources */,
 				8E3D188824EB7B7300B817AC /* ViewController.xib in Resources */,
 				8E32279124AD47E60077122D /* Assets.xcassets in Resources */,
 				8E3D189524EE652E00B817AC /* LifeViewController.xib in Resources */,
+				8E794E0625076FDB00A06F40 /* RunloopViewController.xib in Resources */,
 				8E3D188E24EB7BDF00B817AC /* RecordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,22 +396,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E32278C24AD47DC0077122D /* ViewController.m in Sources */,
-				8E794DE22502240200A06F40 /* NSObjectBase.m in Sources */,
 				8E3D18AA24F4E3F400B817AC /* RuntimeViewController.m in Sources */,
 				8E3D18A724F4E06100B817AC /* Student.m in Sources */,
 				8E3D18B224F7CE4200B817AC /* Demo+Dog.m in Sources */,
+				8EAD8C7B25089D0300433F57 /* DisplayLinkViewController.m in Sources */,
+				8E794DFD25071DF900A06F40 /* NSMutableArray+Insert.m in Sources */,
+				8E794DFA2506360800A06F40 /* MJPerson.m in Sources */,
+				8E794E0F25078BC700A06F40 /* QueueViewController.m in Sources */,
 				8E732E2C24E283AE006243EB /* Person.m in Sources */,
+				8E794E0525076FDB00A06F40 /* RunloopViewController.m in Sources */,
 				8E732E2924DCF962006243EB /* Demo.m in Sources */,
+				8EAD8C7E25089D7F00433F57 /* DisplayLink.m in Sources */,
+				8EAD8C842508A49E00433F57 /* Handder.m in Sources */,
 				8E3D189C24EEBB3100B817AC /* AppDelegate.m in Sources */,
 				8E3D18BD24F8BDFB00B817AC /* KvoMessage.m in Sources */,
 				8E3D18A024EEBBD200B817AC /* DemoViewController.m in Sources */,
+				8EAD8C8125089E9800433F57 /* MyTimer.m in Sources */,
 				8E794DD925002C1400A06F40 /* Forward.m in Sources */,
 				8E3D189824EE655200B817AC /* LifeView.m in Sources */,
 				8E732E2624DB4FBF006243EB /* main.mm in Sources */,
+				8E794DDC250208B900A06F40 /* Son.m in Sources */,
+				8E794DF725062DD700A06F40 /* Son+TestSon.m in Sources */,
+				8E794DF425062C8600A06F40 /* Son+CateSon.m in Sources */,
 				8E3D18C824FE0B1E00B817AC /* Apple.m in Sources */,
 				8E3D188C24EB7BD400B817AC /* RecordViewController.m in Sources */,
+				8E794E0A250770B300A06F40 /* TimerViewController.m in Sources */,
 				8E3D189324EE5FDD00B817AC /* LifeViewController.m in Sources */,
-				8E794DDC250208B900A06F40 /* Son.m in Sources */,
 				8E3D18C424F8F9BA00B817AC /* Work.m in Sources */,
 				8E794DF125035B5500A06F40 /* NSObject+Execption.m in Sources */,
 				8E732E2224D3BB65006243EB /* Child.m in Sources */,
@@ -471,6 +563,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = HW27MNE45K;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = Trade/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -497,6 +590,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = HW27MNE45K;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = Trade/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

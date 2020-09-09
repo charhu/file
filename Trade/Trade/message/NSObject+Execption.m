@@ -12,27 +12,22 @@
 @implementation NSObject (Execption)
 
 
-//
+// 当前类被调用时被加载
 //+ (void)initialize{
 //    [super initialize];
 //    NSLog(@" --- %s ----", __func__);
 //}
 
-- (void)test{
-    NSLog(@" %s  ", __func__);
-}
-
+// 程序启动时加载一次
 +(void)load{
-    NSLog(@" --- %s ----", __func__);
     
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self exchangeMethod:@"methodSignatureForSelector:" withNewMethod:@"customMethodSignatureForSelector:" isClass: YES];
-        [self exchangeMethod:@"forwardInvocation:" withNewMethod:@"customForwardInvocation:" isClass: YES];
-        
-        [self exchangeMethod:@"methodSignatureForSelector:" withNewMethod:@"customMethodSignatureForSelector:" isClass: NO];
-        [self exchangeMethod:@"forwardInvocation:" withNewMethod:@"customForwardInvocation:" isClass: NO];
-    });
+    [self exchangeMethod:@"methodSignatureForSelector:" withNewMethod:@"customMethodSignatureForSelector:" isClass: YES];
+    [self exchangeMethod:@"forwardInvocation:" withNewMethod:@"customForwardInvocation:" isClass: YES];
+    
+    [self exchangeMethod:@"methodSignatureForSelector:" withNewMethod:@"customMethodSignatureForSelector:" isClass: NO];
+    [self exchangeMethod:@"forwardInvocation:" withNewMethod:@"customForwardInvocation:" isClass: NO];
+    
+    [self exchangeMethod:@"isEqual:" withNewMethod:@"hahaEqual:" isClass: NO];
 }
 
 + (void)exchangeMethod:(NSString *)old withNewMethod:(NSString *)new isClass:(BOOL)isClassMeth{
@@ -44,7 +39,6 @@
         [self exchangeInstanceMethod:origSel withNewMethod:newSel];
     }
 }
-
 + (void)exchangeInstanceMethod:(SEL)origSel withNewMethod:(SEL)newSel{
     Class class = [self class];
     Method origMethod = class_getInstanceMethod(class, origSel);
@@ -69,11 +63,6 @@
     }
     method_exchangeImplementations(origMethod, newMethod);
 }
-
-
-
-/* ------ Execption ------*/
-
 // 消息转发，即消息重定向，forwardInvocation思路，简单讲，就是将本类找不到的实现，让其他类帮忙实现。
 // 类方法重签
 + (NSMethodSignature *)customMethodSignatureForSelector:(SEL)aSelector {
@@ -83,14 +72,13 @@
     SEL aSelector = [invocation selector];
    NSLog(@"找不到类方法：[%@ %@]", self, NSStringFromSelector(aSelector));
 }
-
 // 实例方法重签
 - (NSMethodSignature *)customMethodSignatureForSelector:(SEL)aSelector {
     return [self.class instanceMethodSignatureForSelector:@selector(doNothing)]; // 任意的自定义方法
 }
 - (void)customForwardInvocation:(NSInvocation *)invocation {
     SEL aSelector = [invocation selector];
-    NSLog(@"找不到实例方法：[%@ %@]", self, NSStringFromSelector(aSelector));
+    NSLog(@"找不到实例方法：[%@ %@]", self.class, NSStringFromSelector(aSelector));
 }
 /* 官方推荐的安全写法，如果有转发的类，子类 可以按这个模板进行，类实现，实例实现
 - (void)forwardInvocation:(NSInvocation *)invocation{
@@ -100,23 +88,35 @@
     }else{
         [super forwardInvocation:invocation];
     }
+}*/
+- (void)doNothing{ /* 什么也不做，此方法不会执行，主要用来重签使用，必须写*/ }
++ (void)doNothing{ /* 什么也不做，此方法不会执行，主要用来重签使用，必须写*/ }
+
+
+
+//// Class 类方法  ：留给子类去实现
+//+ (id)forwardingTargetForSelector:(SEL)aSelector {
+//    NSLog(@"forwardingTargetForSelector 找不到类方法：[%@  %@]", self, NSStringFromSelector(aSelector));
+//    return nil;
+//}
+//// instance 实例方法  ：留给子类去实现
+//- (id)forwardingTargetForSelector:(SEL)aSelector {
+//    NSLog(@"forwardingTargetForSelector 找不到实例方法：[%@ %@]", self, NSStringFromSelector(aSelector));
+//    return nil;
+//}
+
+
+
+- (void)test{
+    NSLog(@" %s  ", __func__);
 }
-*/
-
-- (void)doNothing{}
-+ (void)doNothing{}
 
 
 
-// Class 类方法  ：留给子类去实现
-+ (id)forwardingTargetForSelector:(SEL)aSelector {
-    NSLog(@"forwardingTargetForSelector 找不到类方法：[%@  %@]", self, NSStringFromSelector(aSelector));
-    return nil;
-}
-// instance 实例方法  ：留给子类去实现
-- (id)forwardingTargetForSelector:(SEL)aSelector {
-    NSLog(@"forwardingTargetForSelector 找不到实例方法：[%@ %@]", self, NSStringFromSelector(aSelector));
-    return nil;
+- (BOOL)hahaEqual:(id)object{
+//    BOOL result = [self isEqual:object];  // 会引起死循环报错
+    BOOL result = [self hahaEqual:object];  // 不会引起
+    return result;
 }
 
 @end

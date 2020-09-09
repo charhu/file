@@ -31,12 +31,12 @@ typedef NSArray* (^block)(NSString *ss);
 @implementation ViewController
 
 + (void)load{
-    [super load];
+//    [super load];
     NSLog(@" VC--- %s ----", __func__);
 }
 
 + (void)initialize{
-    [super initialize];
+//    [super initialize];
     NSLog(@" VC--- %s ----", __func__);
 }
 

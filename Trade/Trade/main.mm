@@ -4,6 +4,8 @@
 #import "AppDelegate.h"
 
 #include <objc/runtime.h>
+#include <objc/message.h>
+
 //#include <malloc/malloc.h>
 //
 //#import "Demo.h"
@@ -16,6 +18,8 @@
 #import "KvoMessage.h"
 #import "Forward.h"
 #import "Son.h"
+
+#import "MJPerson.h"
 
 @interface Man : NSObject
 @property (assign, nonatomic) int age;
@@ -52,8 +56,58 @@ struct my_objc_class {
 //@end
 
  NSInteger num = 3;  // 等同于 static auto NSInteger num = 3;
-//Man *obj = nil;
 
+void testSon(){
+    MJPerson *per = [[MJPerson alloc] init];
+    [per isEqual:[[MJPerson alloc] init]];
+}
+
+void testRemory(){
+    NSObject *obj1 = [[NSObject alloc] init];
+    NSObject *obj2 = [[NSObject alloc] init];
+    NSObject *obj3 = [[NSObject alloc] init];
+    
+    NSLog(@"堆 obj1：%p", obj1);  // 0x600002b4c0a0   低：↓
+    NSLog(@"堆 obj2：%p", obj2);  // 0x600002b4c0e0   中：↓
+    NSLog(@"堆 obj3：%p", obj3);  // 0x600002b4c100   高：↓
+    
+    NSLog(@"栈 obj1：%p", &obj1); // 0x7ffee9305be8   高：↓
+    NSLog(@"栈 obj2：%p", &obj2); // 0x7ffee9305be0   中：↓
+    NSLog(@"栈 obj3：%p", &obj3); // 0x7ffee9305bc8   低：↓
+/*
+因为堆遵守先进先出FIFO，栈遵守先进后出FILO(则后进先出)，所以由此可见，堆栈区，实际上都是遵守，低地址的变量先出去
+ */
+}
+
+void testSon3(){
+    int *c = nil;
+    NSString *test = @"123";
+    id cls = [MJPerson class];
+//    [cls test40];
+    objc_msgSend(cls, @selector(test40));
+    
+    void *obj = &cls;
+    [(__bridge id)obj test30];
+    objc_msgSend((__bridge id)obj, @selector(test30));
+    
+    MJPerson *per = [[MJPerson alloc] init];
+//    [MJPerson test40];
+    objc_msgSend(MJPerson.class, @selector(test40));
+//    [per test30];
+    objc_msgSend(per, @selector(test30));
+}
+
+void testSon2(){
+    Son *ss = [[Son alloc] init];
+    [ss test2];
+    [Son test1];
+    
+    [ss test2];
+    [Son test1];
+    
+    [ss test2];
+    [Son test1];
+}
 
 void test1(){
     Son *son = [[Son alloc] init];
@@ -79,37 +133,26 @@ void test1(){
 
 void fordwing();
 
-void test2(){
-    KvoMessage *msg = [[KvoMessage alloc] init];
-    [msg demo5];
-    [KvoMessage demo6];
-    
-    [msg demo5];
-    [KvoMessage demo6];
-    
-    Forward *forw = [[Forward alloc] init];
-    [forw demo11];
-    [Forward demo22];
-    
-    [forw demo11];
-    [Forward demo22];
-    
-    fordwing();
-    
-    Student *stu = [[Student alloc] init];
-    [stu testStu];
-    [Student testStuClass];
-}
-
 void classISA();
 
+void testArr(){
+    NSString *obj = nil;
+    NSMutableArray *arr = [NSMutableArray array];
+    [arr addObject:@"1"];
+    [arr addObject:@"3"];
+    [arr addObject:obj];
+    [arr addObject:@"4"];
+    
+    NSDictionary *dic = @{@"key":@"value"};
+    NSString *var = dic[@"ss"];
+}
 
 int main(int argc, char *argv[]){
     
     @autoreleasepool {
-        
+        testArr();
+//        testSon();
 //        test1();
-        test2();
 //        fordwing();
 //        NSInteger num = 3;
 //
@@ -204,13 +247,19 @@ void fordwing(){
      KvoMessage *kvo1 = [[KvoMessage alloc] init];
      [kvo1 demo1];
      [KvoMessage demo2];
-
-     [kvo1 demo1];
-     [KvoMessage demo2];
      
-     [kvo1 demo1];
-     [KvoMessage demo2];
-     
+    KvoMessage *msg = [[KvoMessage alloc] init];
+    [msg demo5];
+    [KvoMessage demo6];
+    
+    Forward *forw = [[Forward alloc] init];
+    [forw demo11];
+    [Forward demo22];
+    
+    Student *stu = [[Student alloc] init];
+    [stu testStu];
+    [Student testStuClass];
+    
      // 测试动态解析
      [kvo1 resolveInstanceMethodDynamically];
      [KvoMessage resolveClassMethodDynamically];

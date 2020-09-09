@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)classMember;
 - (void)instanceMember;
 
++ (void)test1;
+- (void)test2;
 @end
 
 NS_ASSUME_NONNULL_END

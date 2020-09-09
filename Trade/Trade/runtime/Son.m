@@ -10,6 +10,11 @@
 
 @implementation Son
 
++ (void)load{
+//    [super load];
+    NSLog(@" --- %s ----", __func__);
+}
+
 - (void)logClass{
     NSLog(@"[self class]：%@", [self class]);
     NSLog(@"[super class]：%@", [super class]);
@@ -17,7 +22,7 @@
     NSLog(@"[super superclass]：%@", [super superclass]);
 }
 
-/*
+/*Son 继承至 Student 继承至 NSObject, 则有
  [self class]：Son
  [super class]：Son
  [self superclass]：Student
@@ -126,4 +131,10 @@
  3、如果 Class类对象 调用，则是判断传参是否是相同的 MetaClass 元类对象
 */
 
++ (void)test1{
+    NSLog(@"-----%s----", __func__);
+}
+- (void)test2{
+    NSLog(@"-----%s----", __func__);
+}
 @end
