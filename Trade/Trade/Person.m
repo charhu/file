@@ -40,4 +40,7 @@
     NSLog(@"num 的结果：%d", num);
 }
 
+- (void)dealloc{
+    NSLog(@"------person dealloc");
+}
 @end

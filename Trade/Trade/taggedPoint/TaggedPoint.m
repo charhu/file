@@ -65,7 +65,7 @@
 #           define _OBJC_TAG_MASK 1UL        // mac 平台  0x01
     #endif
     BOOL istagged = (((uintptr_t)ptr & _OBJC_TAG_MASK) == _OBJC_TAG_MASK);
-    // 所以由此可见：MAC平台是看二进制最低位是否是1，iOS平台是看最高位是否是1，是1则是TaggedPoint指针，否则不是。
+    // 所以由此可见：MAC平台是看二进制最低位是否是1，即LSB，iOS平台是看最高位是否是1，是1则是TaggedPoint指针，否则不是，即MSB。
     NSLog(@"ptr；%@， istagged : %d", ptr, istagged);
     
     return istagged;

@@ -12,12 +12,15 @@
 
 #import "Handder.h"
 #import "Hander_Proxy.h"
+#import <sys/poll.h>
+extern NSString* caseLog(CFRunLoopActivity activity);
 
 @interface DisplayLinkViewController ()<HandderDelegate>
 {
     dispatch_source_t _gcdTimer;
+    CFRunLoopObserverRef _observe;
 }
-@property (strong, nonatomic) DisplayLink *link;
+@property (strong, nonatomic) CADisplayLink *link;
 @property (strong, nonatomic) NSTimer *timer;
 @end
 
@@ -26,30 +29,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self testGcdTimer];
+//    [self testGcdTimer];
+    
+    [self testHandderDisplayLink];
+    [self testRunloopObserve];
 }
 
+- (void)testRunloopObserve{
+    _observe = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
+        int *a = poll;
+        NSLog(@"RunLoop状态  %@    %d", caseLog(activity), *a);
+    });
+    CFRunLoopAddObserver(CFRunLoopGetCurrent(), _observe, kCFRunLoopCommonModes);
+}
 
-- (void)testHander{
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    if (_observe) {
+        CFRunLoopRemoveObserver(CFRunLoopGetCurrent(), _observe, kCFRunLoopCommonModes);
+        CFRelease(_observe);
+        _observe = nil;
+    }
+}
+
+- (void)testHandderDisplayLink{
+    
 //    Handder *handder = [[Handder alloc] init];
 //    handder.forwardObj = self;
-//    handder.delegate = self;
-//    __weak typeof(self) weakSelf = self;
+//    handder.delegate = self;          // 方案1：delegate 代理
+    
+//    __weak typeof(self) weakSelf = self;      // 方案2：block
 //    handder.block = ^(id _Nonnull obj) {
 //        [weakSelf testDisplayLink];
 //    };
     
-    // 不需要 init, NSProxy 代理类，通常用来做中间件，消息转发效率更快更高。它跟NSObject 一样都是基类。
+    // 方案3：NSProxy 代理
+    // NSProxy 代理类，实例化时，不需要调用 init, ，通常用来做中间件，消息转发效率更快更高。它跟NSObject 一样都是基类。
     Hander_Proxy *handder = [Hander_Proxy alloc];
     handder.forwardObj = self;
     
-    self.link = (DisplayLink *)[DisplayLink displayLinkWithTarget:handder selector:@selector(testDisplayLink)];
+    self.link = [CADisplayLink displayLinkWithTarget:handder selector:@selector(testDisplayLink)];
     [self.link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
 }
 - (void)testHandder{
     [self testDisplayLink];
 }
-
 - (void)testDisplayLink{
     NSLog(@"---%s----", __func__);
 }

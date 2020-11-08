@@ -66,7 +66,15 @@
 // 消息转发，即消息重定向，forwardInvocation思路，简单讲，就是将本类找不到的实现，让其他类帮忙实现。
 // 类方法重签
 + (NSMethodSignature *)customMethodSignatureForSelector:(SEL)aSelector {
-    return [self instanceMethodSignatureForSelector:@selector(doNothing)];  // 任意的自定义方法
+    NSMethodSignature *signature = [self instanceMethodSignatureForSelector:aSelector]; // 系统的方法
+    if (signature) {
+        return signature;
+    }
+    if ([NSStringFromClass(self) containsString:@"Keyboard"]) {
+        NSLog(@"+ self：%@, aSelector：%@", self, NSStringFromSelector(aSelector));
+        return nil;
+    }
+    return [self instanceMethodSignatureForSelector:@selector(doNothing)]; // 任意的自定义方法
 }
 + (void)customForwardInvocation:(NSInvocation *)invocation {
     SEL aSelector = [invocation selector];
@@ -74,6 +82,14 @@
 }
 // 实例方法重签
 - (NSMethodSignature *)customMethodSignatureForSelector:(SEL)aSelector {
+    NSMethodSignature *signature = [self.class instanceMethodSignatureForSelector:aSelector]; // 系统的方法
+    if (signature) {
+        return signature;
+    }
+    if ([NSStringFromClass(self.class) containsString:@"Keyboard"]) {
+        NSLog(@"- self：%@, aSelector：%@", self, NSStringFromSelector(aSelector));
+        return nil;
+    }
     return [self.class instanceMethodSignatureForSelector:@selector(doNothing)]; // 任意的自定义方法
 }
 - (void)customForwardInvocation:(NSInvocation *)invocation {

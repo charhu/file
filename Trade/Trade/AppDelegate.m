@@ -13,35 +13,64 @@
 #import "DemoViewController.h"
 #import "RuntimeViewController.h"
 #import "RunloopViewController.h"
-
 #import "Demo.h"
-
 #include <objc/runtime.h>
-
 #import "Work.h"
-
 #include <malloc/malloc.h>
-
 #import "TaggedPoint.h"
+#import "CopyStr.h"
 
-@interface AppDelegate ()
 
+
+
+#import "AppDelegate+Test1.h"
+#import "AppDelegate+Test2.h"
+#import "AppDelegate+Test3.h"
+
+@interface AppDelegate (demo2)
+@property (nonatomic, copy) NSString *aaa;
+- (void)clickTest11;
+@end
+
+@interface AppDelegate (demo1)
+@property (nonatomic, copy) NSString *bbb;
+- (void)clickTest11;
+@end
+
+@interface AppDelegate (demo3)
+@property (nonatomic, copy) NSString *aaa;
 @end
 
 @implementation AppDelegate
 
-+ (void)load{
-//    [super load];
-    NSLog(@" --- %s ----", __func__);
-}
-
-+ (void)initialize{
-//    [super initialize];
-    NSLog(@" --- %s ----", __func__);
+- (void)clickTest11{
 }
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(nullable NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions{
-//    NSLog(@">>>> 1 %s",__func__);
+    
+    self.aaa = @"111";
+    self.bbb = @"222";
+    
+    NSUUID *idfv = [[UIDevice currentDevice] identifierForVendor];
+    NSLog(@"idfv : %@  length：%lu", idfv.UUIDString, (unsigned long)idfv.UUIDString.length);
+    //初始安装 1、B4728EFD-0A7F-4393-B482-C2A45E21A7AB
+    //覆盖安装 2、B4728EFD-0A7F-4393-B482-C2A45E21A7AB   --
+    //覆盖安装 3、B4728EFD-0A7F-4393-B482-C2A45E21A7AB   --
+    // .....
+    //卸载重装 4、ECA8B465-B137-4F19-9700-B88609F8CA4A   变了
+    //覆盖安装 5、ECA8B465-B137-4F19-9700-B88609F8CA4A   --
+    //覆盖安装 6、ECA8B465-B137-4F19-9700-B88609F8CA4A   --
+    
+    NSString *uuid2 = [NSUUID UUID].UUIDString;
+    NSLog(@"uuid2 : %@  length：%lu", uuid2, (unsigned long)uuid2.length);
+    //初始安装 1、44805AD8-3E50-4C76-86E2-83F3A8B81B3B
+    //覆盖安装 2、3FEFCFDE-A2EC-486E-B58A-DCB104C9957C   变了
+    //覆盖安装 3、85C3DD7D-38A9-4121-B447-ABCEBCB3D200   变了
+    // .....                                           变了
+    //卸载重装 4、338000E4-C4E3-4CB5-82D3-21B91869F6F8   变了
+    //覆盖安装 5、3F524B50-AC9F-43E4-8FEE-60A7CEEA1021   变了
+    //覆盖安装 6、520E6394-6312-4814-8B9C-10044E117758   变了
+    
     return YES;
 }
 
@@ -103,6 +132,7 @@
     UIView *a = nil;
     [self.window addSubview:a];
     
+     
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -130,5 +160,16 @@
 //- (void)applicationWillEnterForeground:(UIApplication *)application{
 //    NSLog(@">>>> 8 %s",__func__);
 //}
+
++ (void)load{
+//    [super load];
+    NSLog(@" --- %s ----", __func__);
+}
+
++ (void)initialize{
+//    [super initialize];
+    NSLog(@" --- %s ----", __func__);
+}
+
 
 @end

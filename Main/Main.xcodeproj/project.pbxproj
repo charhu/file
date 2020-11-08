@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		8E732DFA24D2E9C3006243EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E732DF924D2E9C3006243EB /* main.m */; };
+		8EAD8CAB250B759000433F57 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD8CAA250B759000433F57 /* Person.m */; };
+		8EAD8CB0250C054F00433F57 /* CF-1151.16 in Resources */ = {isa = PBXBuildFile; fileRef = 8EAD8CAF250C054F00433F57 /* CF-1151.16 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8E732DE424D2E9BF006243EB /* Main.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Main.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E732DF824D2E9C3006243EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E732DF924D2E9C3006243EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8EAD8CA9250B758F00433F57 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		8EAD8CAA250B759000433F57 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		8EAD8CAF250C054F00433F57 /* CF-1151.16 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "CF-1151.16"; path = "../../../../Downloads/CF-1151.16"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,8 +51,11 @@
 		8E732DE624D2E9BF006243EB /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8EAD8CAF250C054F00433F57 /* CF-1151.16 */,
 				8E732DF824D2E9C3006243EB /* Info.plist */,
 				8E732DF924D2E9C3006243EB /* main.m */,
+				8EAD8CA9250B758F00433F57 /* Person.h */,
+				8EAD8CAA250B759000433F57 /* Person.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -109,6 +117,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EAD8CB0250C054F00433F57 /* CF-1151.16 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EAD8CAB250B759000433F57 /* Person.m in Sources */,
 				8E732DFA24D2E9C3006243EB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +249,7 @@
 		8E732DFE24D2E9C3006243EB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Main/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -254,6 +265,7 @@
 		8E732DFF24D2E9C3006243EB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Main/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

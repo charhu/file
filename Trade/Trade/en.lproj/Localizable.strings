@@ -1,0 +1,6 @@
+
+/* Class = "UIButton"; normalTitle = "开始定位"; ObjectID = "Jet-r9-pHp"; */
+"start.normal.title" = "start";
+
+/* Class = "UIButton"; normalTitle = "结束定位"; ObjectID = "fWk-fJ-TZ1"; */
+"end.normal.title" = "end";
